@@ -2,14 +2,11 @@ package com.company.dao;
 
 import com.company.model.Student;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
+
 //ahmet dellal
 public class InMemoryDao {
-    private Map<Long, Student> studentMap = new HashMap<>();
+    private final Map<Long, Student> studentMap = new HashMap<>();
 
     public InMemoryDao() {
         Student student = new Student("Ahmet", "DELLAL");
@@ -27,11 +24,10 @@ public class InMemoryDao {
     }
 
     public List<Student> getAllStudent() {
-        return studentMap.values().stream()
-                .collect(Collectors.toList());
+        return new ArrayList<>(studentMap.values());
     }
    
-    public void getStrinExample(){
-	Sytem.out.println("Merhaba dunya");
+    public void getStringExample(){
+	System.out.println("Merhaba dunya");
     }
 }
